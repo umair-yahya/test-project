@@ -1,6 +1,6 @@
 **Web View**
 
-![image](https://github.com/user-attachments/assets/65fc65d6-ef0f-4e18-a845-c1169cef9de9)
+![image](https://github.com/user-attachments/assets/83a2b075-285f-400f-b57a-5f77f5c36e60)
 
 **Mobile View**
 
