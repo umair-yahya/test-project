@@ -28,16 +28,18 @@ function renderCards() {
 
   const cardsContainer = document.getElementById('cards-container');
 
-  cardData.map(card => {
+  cardData.map((card,index) => {
     const cardElement = document.createElement('div');
     cardElement.classList.add('card');
 
+    cardElement.setAttribute('key', index); 
+
     cardElement.innerHTML = `
       <div class="card-image">
-        <object class="svg-icon" data="${card.image}" type="image/svg+xml"></object>
+        <object class="svg-icon" data="${card?.image}" type="image/svg+xml"></object>
       </div>
-      <h3 class="title">${card.title}</h3>
-      <p class="description">${card.description}</p>
+      <h3 class="title">${card?.title}</h3>
+      <p class="description">${card?.description}</p>
     `;
 
     cardsContainer.appendChild(cardElement);
@@ -49,7 +51,6 @@ function toggleMenu() {
 }
 
 function closeMenu() {
-  console.log('firstrrrr')
   document.getElementById('overlay').classList.remove('active');
 }
 
@@ -64,6 +65,7 @@ function initializeEventListeners() {
   renderCards();
   document.getElementById('hamburger-open').addEventListener('click', toggleMenu);
   document.getElementById('hamburger-close').addEventListener('click', closeMenu);
+  document.getElementById('overlay-close').addEventListener('click', closeMenu);
   window.addEventListener('resize', closeHamburgerOnResize);
 }
 

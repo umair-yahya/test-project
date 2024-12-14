@@ -68,7 +68,7 @@ header .btn {
 	padding: 34.1px 26.53px 34.1px 26.53px;
 	gap: 22.74px;
 	border-radius: 11.37px;
-	border: 0.47px;
+	border: 0.47px solid #0000001A
 }
 footer {
 	text-align: center;
@@ -169,6 +169,7 @@ footer a {
 
 .overlay.active {
     display: flex;
+	transition: 1s ease;
 }
 
 .overlay-left {
