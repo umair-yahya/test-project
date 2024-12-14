@@ -18,48 +18,44 @@
 	</head>
 	<body>
 		<header>
-            <img src="./assets/svg/logo.svg" alt="Logo" class="logo">
-            <nav class="nav-links">
-                <a href="#">Shop</a>
-                <a href="#">About Us</a>
-                <a href="#">Resources</a>
-                <a href="#">Blog</a>
-            </nav>
-            <button href="#" class="btn hide-on-mobile">Get Free Strategy</button>
-            <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-        </header>
-        
-        <!-- Overlay Menu -->
-        <div id="overlay" class="overlay">
-            <div class="overlay-content">
-                <a href="#">Shop</a>
-                <a href="#">About Us</a>
-                <a href="#">Resources</a>
-                <a href="#">Blog</a>
-                <button href="#" class="btn">Get Free Strategy</button>
-                <span class="closebtn" onclick="closeMenu()">&#10005;</span>
-            </div>
-        </div>
-          
-          <div class="blur-background" id="blurBackground"></div>
-		<div class="content">
-            <div>
-                <div class="choose-text">
-                    WHY CHOOSE US?
-                </div>
-                <div class="digital-text">
-                    Why Digitalogies
-                </div>
-            </div>
-			<div class="cards" id="cards-container">
-				
+			<img src="./assets/svg/logo.svg" alt="Logo" class="logo" />
+			<nav class="nav-links">
+				<a href="#">Shop</a>
+				<a href="#">About Us</a>
+				<a href="#">Resources</a>
+				<a href="#">Blog</a>
+			</nav>
+			<button href="#" class="btn hide-on-mobile">Get Free Strategy</button>
+			<div id="hamburger-open" class="hamburger">&#9776;</div>
+		</header>
+
+		<!-- Overlay Menu -->
+		<div id="overlay" class="overlay">
+			<div class="overlay-left"></div>
+			<div class="overlay-right">
+				<div class="overlay-content">
+					<a href="#">Shop</a>
+					<a href="#">About Us</a>
+					<a href="#">Resources</a>
+					<a href="#">Blog</a>
+					<button href="#" class="btn">Get Free Strategy</button>
+					<span id="hamburger-close" class="closebtn">&#10005;</span>
+				</div>
 			</div>
+		</div>
+        
+		<div class="content">
+			<div>
+				<div class="choose-text">WHY CHOOSE US?</div>
+				<div class="digital-text">Why Digitalogies</div>
+			</div>
+			<div class="cards" id="cards-container"></div>
 		</div>
 
 		<footer>
 			&copy; Copyright 2023 Website Development by <a href="#">Digitalogies</a>
 		</footer>
 
-        <script type="module" src="./script.js"></script>
+		<script src="./script.js"></script>
 	</body>
 </html>

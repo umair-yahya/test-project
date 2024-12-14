@@ -1,4 +1,4 @@
-export function renderCards() {
+function renderCards() {
   const cardData = [
     {
       image: "./assets/svg/atlanta.svg",
@@ -28,14 +28,10 @@ export function renderCards() {
 
   const cardsContainer = document.getElementById('cards-container');
 
-  const changeSvgColor = (paths, color) => {
-    paths.forEach(path => path.setAttribute('fill', color));
-  };
-
   cardData.map(card => {
     const cardElement = document.createElement('div');
     cardElement.classList.add('card');
-    
+
     cardElement.innerHTML = `
       <div class="card-image">
         <object class="svg-icon" data="${card.image}" type="image/svg+xml"></object>
@@ -45,21 +41,6 @@ export function renderCards() {
     `;
 
     cardsContainer.appendChild(cardElement);
-
-    const svgIcon = cardElement.querySelector('.svg-icon');
-    svgIcon.addEventListener('load', () => {
-      const svgDoc = svgIcon.contentDocument;
-      const paths = svgDoc.querySelectorAll('path');
-      const defaultColor = '#0095DA';
-      const hoverColor = '#ffffff';
-
-      changeSvgColor(paths, defaultColor);
-
-      if (!card.noHover) {
-        cardElement.addEventListener('mouseover', () => changeSvgColor(paths, hoverColor));
-        cardElement.addEventListener('mouseout', () => changeSvgColor(paths, defaultColor));
-      }
-    });
   });
 }
 
@@ -68,26 +49,24 @@ function toggleMenu() {
 }
 
 function closeMenu() {
+  console.log('firstrrrr')
   document.getElementById('overlay').classList.remove('active');
 }
 
 function closeHamburgerOnResize() {
   if (window.innerWidth > 768) {
-      document.getElementById('overlay').classList.remove('active');
+    document.getElementById('overlay').classList.remove('active');
   }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+
+function initializeEventListeners() {
   renderCards();
+  document.getElementById('hamburger-open').addEventListener('click', toggleMenu);
+  document.getElementById('hamburger-close').addEventListener('click', closeMenu);
+  window.addEventListener('resize', closeHamburgerOnResize);
+}
 
-  const hamburger = document.querySelector('.hamburger');
-    if (hamburger) {
-        hamburger.addEventListener('click', toggleMenu);
-    }
-
-    const closeBtn = document.querySelector('.closebtn');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeMenu);
-    }
-    window.addEventListener('resize', closeHamburgerOnResize);
+document.addEventListener('DOMContentLoaded', function () {
+  initializeEventListeners();
 });

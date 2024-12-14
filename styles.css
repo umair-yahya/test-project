@@ -134,7 +134,6 @@ footer a {
 	color: white;
 	background-color: #0095da;
 	transition: 0.5s ease;
-	transform: scale(1.05);
 	cursor: pointer;
 }
 .card h3,
@@ -159,18 +158,47 @@ footer a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(44, 44, 44, 0.2); 
+    background-color: rgba(44, 44, 44, 0.2);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 999;  
+    z-index: 999;
+}
+
+.overlay.active {
+    display: flex;
+}
+
+.overlay-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+}
+
+.overlay-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .overlay-content {
     text-align: center;
-    width: 80%;  
+    width: 100%;
 }
 
 .overlay-content a {
@@ -178,38 +206,17 @@ footer a {
     padding: 15px;
     margin: 20px;
     font-family: 'Plus Jakarta Sans';
-    padding: 0 25px;
     text-decoration: none;
     color: #474646;
-    font-size: 16px;
-    font-weight: 400;
-    background: none; 
-    outline: none;
+    font-size: 18px;
+    font-weight: 500;
 }
 
-.overlay-content a:focus,
-.overlay-content a:active {
-    background: none;
-    color: #474646;
-    outline: none;  
-    transition: ease 0.7s;
-}
 
 .overlay-content a:hover {
-    color: #007BFF; 
+    color: #007BFF;
     background-color: #f0f0f0;
     transition: ease 0.7s;
-}
-
-.overlay-content a {
-    display: block;
-    padding: 15px;
-    margin: 20px;
-    font-family: 'Plus Jakarta Sans';
-    text-decoration: none;
-    color: #474646;
-    font-size: 16px;
-    font-weight: 500;
 }
 
 .overlay-content button.btn {
@@ -236,11 +243,8 @@ footer a {
     cursor: pointer;
 }
 
-.overlay.active {
-    display: flex;
-}
+/* responsive design */
 
-/* Responsive Design */
 @media (max-width: 1024px) {
 	header {
 		padding: 20px 5%;
@@ -279,6 +283,13 @@ footer a {
 }
 
 @media (max-width: 768px) {
+	.hamburger {
+        display: block;
+    }
+
+    header nav {
+        display: none;
+    }
 	.content {
 		padding: 30px 5%;
 	}
@@ -293,11 +304,13 @@ footer a {
 
 	.choose-text {
 		font-size: 16px;
+		padding-top: 20px;
 	}
 
 	.digital-text {
 		font-size: 30px;
 		line-height: 45px;
+		padding: 5px 0px 18px 0px;
 	}
     nav {
         display: none;
